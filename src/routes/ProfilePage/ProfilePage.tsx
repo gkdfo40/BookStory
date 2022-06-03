@@ -1,21 +1,41 @@
 import { useRecoilState } from 'recoil'
 import { storedBookMarklist } from 'states/state'
+import { VictoryPie } from 'victory'
+
+import styles from './profilePage.module.scss'
 
 interface chartData {
   x: string
-  y: string
+  y: number
 }
 const ProfilePage = () => {
   const [BookMarkList] = useRecoilState(storedBookMarklist)
-  const ChartData: chartData[] = []
+  const dictObj: { [key: string]: number } = {}
+  const PieChartData: chartData[] = []
+
   BookMarkList.forEach((book) => {
-    ChartData.push({ x: book.categoryName, y: book.title })
+    const key = book.categoryName.split('>')[2]
+    if (key in dictObj) dictObj[key] += 1
+    else dictObj[key] = 1
   })
+
+  for (const [key, value] of Object.entries(dictObj)) {
+    PieChartData.push({ x: key, y: value })
+  }
+  console.log(PieChartData)
   return (
-    <div>
-      <div>여기는 타이틀 자리</div>
-      <div>여기는 차트자리</div>
-      <div>여기는 추천 카테고리 베스트 셀러자리</div>
+    <div className={styles.container}>
+      <div>Profile</div>
+      <div>
+        <VictoryPie
+          style={{ labels: { fill: 'purple' } }}
+          innerRadius={100}
+          labelRadius={120}
+          labels={({ datum }) => `${datum.x}:${datum.y}`}
+          data={PieChartData}
+        />
+      </div>
+      <div>Recommend For You</div>
     </div>
   )
 }
