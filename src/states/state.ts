@@ -20,7 +20,7 @@ export const searchInputValueState = atom<string>({
 
 export const currentSearchPageState = atom<number>({
   key: '#currentSearchPageState',
-  default: 1,
+  default: 0,
 })
 
 export const responseSearchBookList = atom<Item[]>({

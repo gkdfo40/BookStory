@@ -2,7 +2,6 @@ import { useRecoilState } from 'recoil'
 import { storedBookMarklist } from 'states/state'
 
 interface chartData {
-  title: string
   x: string
   y: string
 }
@@ -10,7 +9,7 @@ const ProfilePage = () => {
   const [BookMarkList] = useRecoilState(storedBookMarklist)
   const ChartData: chartData[] = []
   BookMarkList.forEach((book) => {
-    ChartData.push({ title: book.title, x: book.categoryName, y: book.categoryId })
+    ChartData.push({ x: book.categoryName, y: book.title })
   })
   return (
     <div>

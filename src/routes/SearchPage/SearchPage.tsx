@@ -13,6 +13,7 @@ const SearchPage = () => {
   const [, setResponseBookList] = useRecoilState(responseSearchBookList)
   const [, setPageNumber] = useRecoilState(currentSearchPageState)
   const [isInputWord, setIsInput] = useState(true)
+  const [finalInputText, setFinalInputText] = useState<string>('')
 
   const onChangeInputText = (e: ChangeEvent<HTMLInputElement>) => {
     const text = e.currentTarget.value
@@ -22,6 +23,7 @@ const SearchPage = () => {
   const onSubmitInputText = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (inputText.length) {
+      setFinalInputText(inputText)
       getItemSearchApi({ Query: inputText, start: 1 }).then((res) => {
         setResponseBookList(res)
         setPageNumber(2)
@@ -50,7 +52,7 @@ const SearchPage = () => {
           />
         </form>
       </div>
-      {!!inputText.length && isInputWord && <SearchResult />}
+      {!!inputText.length && isInputWord && <SearchResult finalInputText={finalInputText} />}
       {!isInputWord && <div>오늘의 추천도서 구역</div>}
     </div>
   )
