@@ -1,0 +1,38 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/responsive';
+@use '/src/styles/mixins/flexbox';
+
+.container {
+  @include flexbox.flexbox(start,center);
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    @include flexbox.flexbox(end,center);
+
+    .setMenu {
+      position: absolute;
+      top: 36px;
+      right: 0;
+      width: 80px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      background-color: colors.$WHITE;
+      border-radius: 5px;
+    }
+  }
+
+  main {
+    .bookCase {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+}

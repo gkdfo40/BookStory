@@ -1,0 +1,8 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/responsive';
+@use '/src/styles/mixins/flexbox';
+
+.container {
+  height: calc(100% - 100px);
+  overflow: auto;
+}

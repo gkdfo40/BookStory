@@ -1,0 +1,38 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/responsive';
+@use '/src/styles/mixins/flexbox';
+
+.wrapper {
+  height: 100%;
+  padding: 5px;
+
+  .inputContainer {
+    .inputBox {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      margin: 5px 5px 0;
+      background-color: colors.$BUTTONBACKGROUND;
+      border: 2px solid colors.$INPUTBOX;
+      border-radius: 8px;
+
+      svg {
+        width: 18px;
+        height: 18px;
+        color: colors.$TEXTGRAY;
+      }
+
+      input {
+        width: 100%;
+        padding: 0 5px;
+        font-size: 16px;
+        color: colors.$TEXTGRAY;
+        border-radius: 8px;
+
+        &::placeholder {
+          color: colors.$TEXTGRAY;
+        }
+      }
+    }
+  }
+}

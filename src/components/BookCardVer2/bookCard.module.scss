@@ -1,0 +1,32 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/responsive';
+@use '/src/styles/mixins/flexbox';
+
+.itemBox {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0;
+
+  img {
+    width: 100px;
+    height: 100px;
+    border-radius: 13px;
+    object-fit: cover;
+  }
+
+  dl {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 5px;
+
+    dt {
+      font-weight: 900;
+    }
+
+    dd {
+      text-align: left;
+    }
+  }
+}

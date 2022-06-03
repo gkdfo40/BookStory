@@ -1,0 +1,35 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/responsive';
+@use '/src/styles/mixins/flexbox';
+
+.categoryButton {
+  @include flexbox.flexbox(center,center);
+  // width: 130px;
+  height: 30px;
+  padding: 0 20px;
+  background-color: colors.$WHITE;
+  border: 1px solid colors.$BOXBORDER;
+  border-radius: 8px;
+
+  .icon {
+    width: 14px;
+    height: 14px;
+    color: colors.$CYONBLACK;
+  }
+
+  p {
+    margin-left: 3px;
+    font-size: 0.9rem;
+    color: colors.$CYONBLACK;
+    text-transform: capitalize;
+  }
+
+  &.isActive {
+    background-color: colors.$KEYCOLOR;
+
+    p,
+    .icon {
+      color: colors.$WHITE;
+    }
+  }
+}

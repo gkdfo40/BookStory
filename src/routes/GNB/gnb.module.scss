@@ -1,0 +1,36 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/responsive';
+@use '/src/styles/mixins/flexbox';
+
+.gnb {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  @include flexbox.flexbox(center,center);
+  width: 100%;
+  height: 70px;
+  background-color: colors.$WHITE;
+  border-radius: 13px 13px 0 0;
+
+  .navWrapper {
+    @include flexbox.flexbox(around, center);
+    width: 80%;
+
+    a {
+      @include flexbox.flexbox(center,center);
+      flex-direction: column;
+      font-size: 0.8rem;
+      color: colors.$GRAYD;
+
+      .navIcon {
+        width: 28px;
+        height: 28px;
+      }
+
+      &.isActive {
+        color: colors.$KEYCOLOR;
+        text-shadow: 0 -15px 20px colors.$KEYCOLORSHAODOW;
+      }
+    }
+  }
+}

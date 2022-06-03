@@ -1,0 +1,15 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/responsive';
+@use '/src/styles/mixins/flexbox';
+
+.container {
+  position: relative;
+  display: flex;
+  min-width: 375px;
+  height: 100vh;
+  background-color: colors.$DEFALTBACK;
+
+  .mainpage {
+    width: 100%;
+  }
+}

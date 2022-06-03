@@ -1,0 +1,132 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/responsive';
+@use '/src/styles/mixins/flexbox';
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 10px 0;
+  background-color: colors.$WHITE;
+  @include flexbox.flexbox(start, center);
+
+  header {
+    width: 100%;
+    height: 40px;
+    padding: 0 10px;
+    @include flexbox.flexbox(between,center);
+
+    h1 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: colors.$CYONBLACK;
+    }
+  }
+
+  figure {
+    @include flexbox.flexbox(center,center);
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+
+    img {
+      width: 40%;
+      margin-bottom: 10px;
+      border-radius: 13px;
+    }
+
+    p {
+      color: colors.$CYONBLACK;
+    }
+  }
+
+  figcaption {
+    @include flexbox.flexbox(around,center);
+    position: relative;
+    width: 90%;
+    height: 60px;
+    margin-top: 10px;
+
+    .customerReviewRank {
+      display: flex;
+      align-items: center;
+
+      svg {
+        width: 16px;
+        height: 16px;
+        color: colors.$YELLOW;
+        fill: colors.$YELLOW;
+      }
+    }
+    color: colors.$TEXTGRAY;
+    background-color: colors.$BUTTONBACKGROUND;
+    border-radius: 13px;
+
+    &::before {
+      position: absolute;
+      left: 10px;
+      width: 2px;
+      height: 20px;
+      content: '';
+      background-color: colors.$KEYCOLOR;
+    }
+
+    &::after {
+      position: absolute;
+      right: 10px;
+      width: 2px;
+      height: 20px;
+      content: '';
+      background-color: colors.$KEYCOLOR;
+    }
+  }
+
+  article {
+    padding: 0 10px;
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+  }
+
+  section {
+    position: fixed;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    padding: 5px 10px;
+    @include flexbox.flexbox(between, center);
+
+    .bookMarkIcon {
+      svg {
+        width: 40px;
+        height: 40px;
+        color: rgba(colors.$BOOKMARKBUTTON, 0.4);
+        background-color: rgba(colors.$BOOKMARKBUTTON, 0.1);
+        border-radius: 10px;
+      }
+
+      &.isActive {
+        width: 10px;
+        height: 10px;
+        fill: colors.$BOOKMARKBUTTON;
+      }
+    }
+
+    a {
+      width: 85%;
+      height: 40px;
+      line-height: 40px;
+      color: colors.$ORANGE;
+      text-align: center;
+      background-color: colors.$KEYCOLOR;
+      border-radius: 7px;
+    }
+  }
+}
