@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ResBookListData } from 'types'
+import { Item, ResBookListData } from 'types'
 
 const API_URL = '/ItemSearch.aspx'
 
@@ -23,8 +23,12 @@ export const getItemSearchApi = async (params: IParams) => {
       },
     })
 
-    const result = res.data.item
-    return result
+    const { item } = res.data
+    if (!item) {
+      const empty: Item[] = []
+      return empty
+    }
+    return item
   } catch (error) {
     throw new Error((error as Error).message)
   }
