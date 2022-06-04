@@ -1,4 +1,4 @@
-import { EditIcon, SetIcon } from 'assets/svgs'
+import { EditIcon } from 'assets/svgs'
 import useOnClickOutside from 'hooks/useOnClickOutside'
 import { useCallback, useMemo, useRef, useState } from 'react'
 import { useRecoilState } from 'recoil'
