@@ -11,10 +11,16 @@
 
   header {
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     @include flexbox.flexbox(end,center);
+
+
+    svg {
+      width: 24px;
+      height: 24px;
+      color: colors.$KEYCOLOR;
+      fill: colors.$WHITE;
+    }
 
     .setMenu {
       position: absolute;

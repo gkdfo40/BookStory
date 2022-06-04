@@ -1,4 +1,4 @@
-import { SetIcon } from 'assets/svgs'
+import { EditIcon, SetIcon } from 'assets/svgs'
 import useOnClickOutside from 'hooks/useOnClickOutside'
 import { useCallback, useMemo, useRef, useState } from 'react'
 import { useRecoilState } from 'recoil'
@@ -35,7 +35,7 @@ const BookMarkPage = () => {
     <div className={styles.container}>
       <header ref={dropDownRef}>
         <button type='button' onClick={onClickSetting}>
-          <SetIcon />
+          <EditIcon />
         </button>
         {dropDownComponent}
       </header>
