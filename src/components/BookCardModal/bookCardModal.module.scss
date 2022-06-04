@@ -20,10 +20,17 @@
     padding: 0 10px;
     @include flexbox.flexbox(between,center);
 
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+
     h1 {
+      width: 100%;
       font-size: 1.2rem;
       font-weight: 800;
       color: colors.$CYONBLACK;
+      text-align: center;
     }
   }
 

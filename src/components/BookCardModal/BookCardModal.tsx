@@ -42,7 +42,6 @@ const BookCardModal = () => {
       <header>
         <BackIcon onClick={onClickCloseModal} />
         <h1>{book.title}</h1>
-        <MenuIcon />
       </header>
       <figure>
         <img src={book.cover} alt='cover' />
