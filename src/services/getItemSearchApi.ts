@@ -12,7 +12,7 @@ export const getItemSearchApi = async (params: IParams) => {
   try {
     const res = await axios.get<ResBookListData>(`${PROXY}/ItemSearch.aspx`, {
       params: {
-        ttbkey: process.env.REACT_APP_API_KEY_ALTER,
+        ttbkey: process.env.REACT_APP_API_KEY,
         QeuryType: `Title`,
         MaxResult: 10,
         SearchTarget: `Book`,
