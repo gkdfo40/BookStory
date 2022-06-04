@@ -1,6 +1,6 @@
 import { useRecoilState } from 'recoil'
 import { storedBookMarklist } from 'states/state'
-import { VictoryLegend, VictoryPie } from 'victory'
+import { VictoryLabel, VictoryLegend, VictoryPie } from 'victory'
 
 import styles from './profilePage.module.scss'
 
@@ -12,6 +12,7 @@ const ProfilePage = () => {
   const [BookMarkList] = useRecoilState(storedBookMarklist)
   const dictObj: { [key: string]: number } = {}
   const PieChartData: chartData[] = []
+  const LabelData: { name: string }[] = []
 
   BookMarkList.forEach((book) => {
     const key = book.categoryName.split('>')[2]
@@ -22,24 +23,45 @@ const ProfilePage = () => {
   for (const [key, value] of Object.entries(dictObj)) {
     PieChartData.push({ x: key, y: value })
   }
+  PieChartData.map((data) => LabelData.push({ name: data.x }))
 
   return (
     <div className={styles.container}>
-      <div>Profile</div>
-      <div>
-        <h1>Summary</h1>
-        <VictoryPie
+      <h1>Summary</h1>
+      <div className={styles.chart}>
+        <svg viewBox='0 0 360 160' width='360px' height='320px'>
+          <VictoryPie
+            padding={0}
+            width={350}
+            height={350}
+            standalone={false}
+            colorScale={['tomato', 'orange', 'gold', 'cyan', 'navy']}
+            innerRadius={130}
+            startAngle={90}
+            endAngle={-90}
+            labels={() => null}
+            data={PieChartData}
+          />
+          <VictoryLabel
+            textAnchor='middle'
+            verticalAnchor='middle'
+            x={175}
+            y={145}
+            text={`${BookMarkList.length}`}
+            style={{ fontSize: 50 }}
+          />
+        </svg>
+        <VictoryLegend
+          orientation='vertical'
+          centerTitle
           colorScale={['tomato', 'orange', 'gold', 'cyan', 'navy']}
-          width={300}
-          height={300}
-          style={{ labels: { fill: 'purple' } }}
-          innerRadius={80}
-          startAngle={90}
-          endAngle={-90}
-          labels={() => ''}
-          data={PieChartData}
+          style={{
+            labels: { fontSize: 23, fontWeight: 700 },
+          }}
+          data={LabelData}
         />
       </div>
+
       <div>Recommend For You</div>
     </div>
   )
