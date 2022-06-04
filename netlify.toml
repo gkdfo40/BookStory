@@ -1,11 +1,5 @@
 [[redirects]]
-from = "/ItemList/*"
-  to = "http://www.aladin.co.kr/ttb/api/ItemList.aspx"  
-  status = 200
-  force = true
-
-[[redirects]]
-from = "/ItemSearch/*"
+from = "/proxy/*"
   to = "http://www.aladin.co.kr/ttb/api/ItemSearch.aspx"  
   status = 200
   force = true
