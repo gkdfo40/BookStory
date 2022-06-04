@@ -1,5 +1,5 @@
 [[redirects]]
 from = "/proxy/*"
-  to = "http://www.aladin.co.kr/ttb/api"  
+  to = "http://www.aladin.co.kr/ttb/api:splat"  
   status = 200
   force = true
