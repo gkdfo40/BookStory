@@ -29,7 +29,7 @@ const ProfilePage = () => {
     <div className={styles.container}>
       <h1>Summary</h1>
       <div className={styles.chart}>
-        <svg viewBox='0 0 360 160' width='360px' height='320px'>
+        <svg viewBox='0 0 360 600' width='360px' height='100%'>
           <VictoryPie
             padding={0}
             width={350}
@@ -50,19 +50,19 @@ const ProfilePage = () => {
             text={`${BookMarkList.length}`}
             style={{ fontSize: 50 }}
           />
+          <VictoryLegend
+            y={175}
+            standalone={false}
+            orientation='vertical'
+            centerTitle
+            colorScale={['tomato', 'orange', 'gold', 'cyan', 'navy']}
+            style={{
+              labels: { fontSize: 23, fontWeight: 700 },
+            }}
+            data={LabelData}
+          />
         </svg>
-        <VictoryLegend
-          orientation='vertical'
-          centerTitle
-          colorScale={['tomato', 'orange', 'gold', 'cyan', 'navy']}
-          style={{
-            labels: { fontSize: 23, fontWeight: 700 },
-          }}
-          data={LabelData}
-        />
       </div>
-
-      <div>Recommend For You</div>
     </div>
   )
 }

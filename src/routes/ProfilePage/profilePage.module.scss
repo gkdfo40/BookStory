@@ -3,6 +3,8 @@
 @use '/src/styles/mixins/flexbox';
 
 .container {
+  @include flexbox.flexbox(center, center);
+  flex-direction: column;
   padding: 10px;
 
   h1 {
@@ -11,9 +13,10 @@
   }
 
   .chart {
+    display: flex;
     flex-direction: column;
     max-width: 360px;
-    height: 600px;
+
     @include flexbox.flexbox(center, center);
   }
 }
