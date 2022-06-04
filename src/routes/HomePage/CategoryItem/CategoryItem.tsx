@@ -1,3 +1,5 @@
+import { useMemo } from 'react'
+import { useRecoilState } from 'recoil'
 import {
   ActionIcon,
   AdventureIcon,
@@ -12,10 +14,8 @@ import {
   SelfHelpIcon,
   ThrillerIcon,
 } from 'assets/svgs/category'
-import cx from 'classnames'
-import { useEffect, useMemo, useState } from 'react'
-import { useRecoilState } from 'recoil'
 import { homePageCategoryState } from 'states/state'
+
 import styles from './categoryItem.module.scss'
 
 interface ItemProps {
@@ -23,13 +23,7 @@ interface ItemProps {
 }
 
 const CategoryItem = ({ categoryNM }: ItemProps) => {
-  const [currentCategoryState, setCurrentCategory] = useRecoilState(homePageCategoryState)
-  const [isActive, setIsActive] = useState(false)
-
-  useEffect(() => {
-    if (currentCategoryState === categoryNM) setIsActive(true)
-    else setIsActive(false)
-  }, [categoryNM, currentCategoryState])
+  const [, setCurrentCategory] = useRecoilState(homePageCategoryState)
 
   const IconSymbol = useMemo(() => {
     const iconSymbol =
@@ -53,7 +47,7 @@ const CategoryItem = ({ categoryNM }: ItemProps) => {
     setCurrentCategory(categoryNM)
   }
   return (
-    <button type='button' className={cx(styles.categoryButton, { isActive })} onClick={onClickCategoryButton}>
+    <button type='button' className={styles.categoryButton} onClick={onClickCategoryButton}>
       {IconSymbol}
       <p>{categoryNM}</p>
     </button>

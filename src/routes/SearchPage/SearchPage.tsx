@@ -5,8 +5,9 @@ import { SearchIcon } from 'assets/svgs'
 import { getItemSearchApi } from 'services/getItemSearchApi'
 import { currentSearchPageState, responseSearchBookList, searchInputValueState } from 'states/state'
 
-import styles from './searchPage.module.scss'
 import SearchResult from './SearchResult/SearchResult'
+
+import styles from './searchPage.module.scss'
 
 const SearchPage = () => {
   const [inputText, setInputText] = useRecoilState(searchInputValueState)

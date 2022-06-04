@@ -1,12 +1,12 @@
+import { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom'
 import { useRecoilState, useRecoilValue } from 'recoil'
+import { Link } from 'react-router-dom'
 
 import { BackIcon, BookMarkIcon, StarIcon } from 'assets/svgs'
 import { modaBookProps, modalOpenState, storedBookMarklist } from 'states/state'
 
 import styles from './bookCardModal.module.scss'
-import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 
 const BookCardModal = () => {
   const book = useRecoilValue(modaBookProps)

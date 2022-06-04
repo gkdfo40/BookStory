@@ -1,5 +1,8 @@
+import { useMemo } from 'react'
 import { useRecoilValue } from 'recoil'
 import { useQuery } from 'react-query'
+import Flicking from '@egjs/react-flicking'
+import '@egjs/react-flicking/dist/flicking.css'
 
 import { getBestSellerApi } from 'services/getBestSellerApi'
 import { homePageCategoryState } from 'states/state'
@@ -8,10 +11,6 @@ import CategoryItem from './CategoryItem/CategoryItem'
 import BookCard from '../../components/BookCard/BookCard'
 
 import styles from './homePage.module.scss'
-import { useMemo } from 'react'
-
-import Flicking from '@egjs/react-flicking'
-import '@egjs/react-flicking/dist/flicking.css'
 
 const CATEGORYLIST = [
   'action',

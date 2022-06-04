@@ -1,6 +1,8 @@
 import { useSetRecoilState } from 'recoil'
+
 import { modaBookProps, modalOpenState } from 'states/state'
 import { Item } from 'types'
+
 import styles from './bookCard.module.scss'
 
 interface BookCardProps {

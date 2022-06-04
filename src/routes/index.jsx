@@ -4,10 +4,10 @@ import HomePage from './HomePage/HomePage'
 import BookMarkPage from './BookMarkPage/BookMarkPage'
 import SearchPage from './SearchPage/SearchPage'
 import ProfilePage from './ProfilePage/ProfilePage'
+import BookCardModal from 'components/BookCardModal/BookCardModal'
 import GNB from './GNB/GNB'
 
 import styles from './Routes.module.scss'
-import BookCardModal from 'components/BookCardModal/BookCardModal'
 
 const App = () => {
   return (
