@@ -1,23 +1,25 @@
 import ReactDOM from 'react-dom'
 import { useRecoilState, useRecoilValue } from 'recoil'
-import cx from 'classnames'
 
-import { BackIcon, BookMarkIcon, MenuIcon, StarIcon } from 'assets/svgs'
+import { BackIcon, BookMarkIcon, StarIcon } from 'assets/svgs'
 import { modaBookProps, modalOpenState, storedBookMarklist } from 'states/state'
 
 import styles from './bookCardModal.module.scss'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const BookCardModal = () => {
   const book = useRecoilValue(modaBookProps)
   const [isModalOpen, setModalOpen] = useRecoilState(modalOpenState)
   const [BookMarkList, setBookMarkList] = useRecoilState(storedBookMarklist)
-  const [isMarked, setMarkState] = useState(() => {
+  const [isMarked, setMarkState] = useState<boolean>(false)
+
+  useEffect(() => {
     const flag = BookMarkList.find((data) => data.itemId === book.itemId)
-    if (flag) return true
-    return false
-  })
+    if (flag) return setMarkState(true)
+    return setMarkState(false)
+  }, [BookMarkList, book.itemId])
+
   const onClickCloseModal = () => {
     setModalOpen(false)
   }
@@ -61,8 +63,8 @@ const BookCardModal = () => {
         <p>{book.description}</p>
       </article>
       <section>
-        <button type='button' className={cx(styles.bookMarkIcon, { isAcive: isMarked })} onClick={onClickBookMark}>
-          <BookMarkIcon />
+        <button type='button' className={styles.bookMarkIcon} onClick={onClickBookMark}>
+          {isMarked ? <BookMarkIcon className={styles.isMarked} /> : <BookMarkIcon className={styles.notMarked} />}
         </button>
         <Link to={`${book.link.replace('http://', '//')}`}>Link To Buy</Link>
       </section>

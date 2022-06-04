@@ -112,7 +112,7 @@
     @include flexbox.flexbox(between, center);
 
     .bookMarkIcon {
-      svg {
+      .isMarked {
         width: 40px;
         height: 40px;
         color: rgba(colors.$BOOKMARKBUTTON, 0.4);
@@ -120,10 +120,10 @@
         border-radius: 10px;
       }
 
-      &.isActive {
-        width: 10px;
-        height: 10px;
-        fill: colors.$BOOKMARKBUTTON;
+      .notMarked {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
       }
     }
 
