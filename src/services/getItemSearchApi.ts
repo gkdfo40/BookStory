@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { Item, ResBookListData } from 'types'
 
-
 const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy'
 
 interface IParams {
