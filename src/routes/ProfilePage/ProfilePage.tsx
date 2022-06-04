@@ -1,6 +1,6 @@
 import { useRecoilState } from 'recoil'
 import { storedBookMarklist } from 'states/state'
-import { VictoryPie } from 'victory'
+import { VictoryLegend, VictoryPie } from 'victory'
 
 import styles from './profilePage.module.scss'
 
@@ -22,16 +22,21 @@ const ProfilePage = () => {
   for (const [key, value] of Object.entries(dictObj)) {
     PieChartData.push({ x: key, y: value })
   }
-  console.log(PieChartData)
+
   return (
     <div className={styles.container}>
       <div>Profile</div>
       <div>
+        <h1>Summary</h1>
         <VictoryPie
+          colorScale={['tomato', 'orange', 'gold', 'cyan', 'navy']}
+          width={300}
+          height={300}
           style={{ labels: { fill: 'purple' } }}
-          innerRadius={100}
-          labelRadius={120}
-          labels={({ datum }) => `${datum.x}:${datum.y}`}
+          innerRadius={80}
+          startAngle={90}
+          endAngle={-90}
+          labels={() => ''}
           data={PieChartData}
         />
       </div>

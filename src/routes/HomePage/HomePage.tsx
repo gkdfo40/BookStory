@@ -10,6 +10,9 @@ import BookCard from '../../components/BookCard/BookCard'
 import styles from './homePage.module.scss'
 import { useMemo } from 'react'
 
+import Flicking from '@egjs/react-flicking'
+import '@egjs/react-flicking/dist/flicking.css'
+
 const CATEGORYLIST = [
   'action',
   'adventure',
@@ -51,24 +54,26 @@ const HomePage = () => {
         <p>current mood?</p>
       </main>
       <section className={styles.category}>
-        <ul className={styles.categoryList}>
+        <Flicking align='prev' circular>
           {CATEGORYLIST.map((category) => (
-            <li key={category} className={styles.item}>
+            <div key={category} className={styles.item}>
               <CategoryItem categoryNM={category} />
-            </li>
+            </div>
           ))}
-        </ul>
+        </Flicking>
       </section>
       <section className={styles.bestSeller}>
         {loadingComponent}
         {errorComponent}
-        <ul className={styles.topTen}>
-          {data?.map((book) => (
-            <li key={book.itemId} className={styles.item}>
-              <BookCard book={book} />
-            </li>
-          ))}
-        </ul>
+        {data && (
+          <Flicking align='prev' circular>
+            {data.map((book) => (
+              <div key={book.itemId} className={styles.item}>
+                <BookCard book={book} />
+              </div>
+            ))}
+          </Flicking>
+        )}
       </section>
     </div>
   )
