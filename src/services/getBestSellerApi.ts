@@ -2,6 +2,8 @@ import axios from 'axios'
 import { Item, ResBookListData } from 'types'
 
 const API_URL = '/ItemList.aspx'
+const PROXY = window.location.hostname === 'localhost' ? API_URL : '/ItemList'
+
 interface Params {
   CategoryId: string
 }
@@ -23,7 +25,7 @@ export async function getBestSellerApi(params: Params) {
         thriller: 6545,
       }[params.CategoryId] ?? 152907
 
-    const res = await axios.get<ResBookListData>(API_URL, {
+    const res = await axios.get<ResBookListData>(PROXY, {
       params: {
         ttbkey: process.env.REACT_APP_API_KEY,
         QueryType: 'Bestseller',

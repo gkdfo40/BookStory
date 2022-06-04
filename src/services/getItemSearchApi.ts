@@ -2,6 +2,7 @@ import axios from 'axios'
 import { Item, ResBookListData } from 'types'
 
 const API_URL = '/ItemSearch.aspx'
+const PROXY = window.location.hostname === 'localhost' ? API_URL : '/ItemSearch'
 
 interface IParams {
   Query: string
@@ -10,7 +11,7 @@ interface IParams {
 
 export const getItemSearchApi = async (params: IParams) => {
   try {
-    const res = await axios.get<ResBookListData>(API_URL, {
+    const res = await axios.get<ResBookListData>(PROXY, {
       params: {
         ttbkey: process.env.REACT_APP_API_KEY_ALTER,
         QeuryType: `Title`,
