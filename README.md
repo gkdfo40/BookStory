@@ -1,46 +1,53 @@
-# Getting Started with Create React App
+# 개인프로젝트
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 기간: 2022/06/03~ 2022/06/05
 
-## Available Scripts
+```
+├─assets
+│  └─svgs
+│      └─category
+├─components
+│  ├─BookCard
+│  ├─BookCardModal
+│  └─BookCardVer2
+├─hooks
+│  ├─state
+│  └─worker
+├─routes
+│  ├─BookMarkPage
+│  ├─GNB
+│  ├─HomePage
+│  │  └─CategoryItem
+│  ├─ProfilePage
+│  └─SearchPage
+│      └─SearchResult
+├─services
+├─states
+├─styles
+│  ├─base
+│  ├─constants
+│  └─mixins
+├─types
+└─utils
+```
 
-In the project directory, you can run:
+> 주제
 
-### `yarn start`
+알라딘 api를 사용하여 Category별 베스트셀러 추천과 도서 북마크를 통한 취향을 차트로 표현하여 사용자의 취향분석 합니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## HOME
+각 카테고리에서 베스트 셀러 10개를 추천합니다.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## BOOKCARD
+책을 클릭하면 해당 도서의 상세정보를 볼 수 있고 `Link To Buy`를 클릭하면 해당 도서를 살 수 있는 링크로 연결합니다.
 
-### `yarn test`
+## BOOKMARK
+북마크한 도서를 로컬에 저장하여 다음에 접속했을 때 로컬에 저장된 도서 목록을 가져옵니다.
+ Edit 버튼을 클릭해 Dropdown 버튼에서 clear All을 통해 북마크 목록을 초기화 할 수 있습니다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## SEARCH
+입력한 검색어와 관련된 도서 정보를 가져옵니다.
+스크롤을 통해 다음 정보를 가져옵니다.
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## PROFILE
+사용자가 북마크한 도서를 통해 카테고리를 분리하여 사용자가 가장 선호하는 취향을 그래프로 표현합니다.
