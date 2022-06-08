@@ -54,7 +54,6 @@ const SearchPage = () => {
         </form>
       </div>
       {!!inputText.length && isInputWord && <SearchResult finalInputText={finalInputText} />}
-      {/* {!isInputWord && <div>오늘의 추천도서 구역</div>} */}
     </div>
   )
 }
