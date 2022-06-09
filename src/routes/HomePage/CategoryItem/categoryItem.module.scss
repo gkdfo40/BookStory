@@ -3,8 +3,7 @@
 @use '/src/styles/mixins/flexbox';
 
 .categoryButton {
-  @include flexbox.flexbox(center,center);
-  // width: 130px;
+  @include flexbox.flexbox(center, center);
   height: 30px;
   padding: 0 20px;
   background-color: colors.$WHITE;
