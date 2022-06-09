@@ -59,8 +59,8 @@ const SearchPage = () => {
       const text = event.currentTarget.dataset.title as string
       setResponseBookList(() => [])
       setInputText(() => text)
-      setFinalInputText(() => inputText)
-      getItemSearchApi({ Query: inputText, start: 1 }).then((res) => {
+      setFinalInputText(() => text)
+      getItemSearchApi({ Query: text, start: 1 }).then((res) => {
         setResponseBookList(res)
         setPageNumber(2)
       })
@@ -80,7 +80,7 @@ const SearchPage = () => {
         </ul>
       </div>
     ) : null
-  }, [data, inputText, openRecommend, setInputText, setPageNumber, setResponseBookList])
+  }, [data, openRecommend, setInputText, setPageNumber, setResponseBookList])
 
   return (
     <div className={styles.wrapper}>
