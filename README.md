@@ -131,5 +131,7 @@ BookMarkList.forEach((book) => {
 `victory'
 ## 개발 스택
 REACT
+
 Typescript
+
 SCSS
