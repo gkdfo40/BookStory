@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { Item, ResBookListData } from 'types'
 
-const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy'
+const PROXY = window.location.hostname === 'localhost' ? '/ttb/api/ItemSearch.aspx' : '/proxy'
 
 interface IParams {
   Query: string
@@ -10,7 +10,7 @@ interface IParams {
 
 export const getItemSearchApi = async (params: IParams) => {
   try {
-    const res = await axios.get<ResBookListData>(`${PROXY}/ttb/api/ItemSearch.aspx`, {
+    const res = await axios.get<ResBookListData>(`${PROXY}`, {
       params: {
         ttbkey: process.env.REACT_APP_API_KEY,
         QeuryType: `Title`,

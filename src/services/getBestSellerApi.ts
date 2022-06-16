@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { Item, ResBookListData } from 'types'
 
-const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy'
+const PROXY = window.location.hostname === 'localhost' ? '/ttb/api/ItemList.aspx' : '/proxy'
 
 interface Params {
   CategoryId: string
@@ -24,7 +24,7 @@ export async function getBestSellerApi(params: Params) {
         thriller: 6545,
       }[params.CategoryId] ?? 152907
 
-    const res = await axios.get<ResBookListData>(`${PROXY}/ttb/api/ItemList.aspx`, {
+    const res = await axios.get<ResBookListData>(`${PROXY}`, {
       params: {
         ttbkey: process.env.REACT_APP_API_KEY,
         QueryType: 'Bestseller',
