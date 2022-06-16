@@ -1,10 +1,5 @@
 [[redirects]]
 from = "/proxy/*"
   to = "http://www.aladin.co.kr/ttb/api/ItemList.aspx/:splat"  
-  status = 302
+  status = 200
   force = true
-
-[[headers]]
-   for = "/*"
-   [headers.values]
-      Access-Control-Allow-Origin = "*"
