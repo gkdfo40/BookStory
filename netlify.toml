@@ -1,7 +1,7 @@
 [[redirects]]
 from = "/proxy/*"
   to = "http://www.aladin.co.kr/ttb/api/ItemList.aspx/:splat"  
-  status = 200
+  status = 302
   force = true
 
 [[headers]]
