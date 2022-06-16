@@ -24,7 +24,7 @@ export async function getBestSellerApi(params: Params) {
         thriller: 6545,
       }[params.CategoryId] ?? 152907
 
-    const res = await axios.get<ResBookListData>(`${PROXY}/ItemList.aspx`, {
+    const res = await axios.get<ResBookListData>(`${PROXY}/ttb/api/ItemList.aspx`, {
       params: {
         ttbkey: process.env.REACT_APP_API_KEY,
         QueryType: 'Bestseller',
